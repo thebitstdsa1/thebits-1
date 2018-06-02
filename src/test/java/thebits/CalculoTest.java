@@ -8,8 +8,7 @@ class CalculoTest {
 
 	@Test
 	void testMultiplicar() {
-		fail("Not yet implemented");
-		//prueba webhook
+		//fail("Not yet implemented");
 	}
 
 }

@@ -20,7 +20,7 @@ class CalculoTest {
 	@Test
 	void testDebeAndar() {
 		Calculo test = new Calculo();
-		assertEquals(4, test.multiplicar(2, 4), "multiplicar(2,4) debe dar 8");
+		assertEquals(8, test.multiplicar(2, 4), "multiplicar(2,4) debe dar 8");
 	}
 	
 

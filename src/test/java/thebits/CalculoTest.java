@@ -1,6 +1,6 @@
 package thebits;
 
-//import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
 
 
@@ -8,7 +8,7 @@ class CalculoTest {
 
 	@Test
 	void testMultiplicar() {
-		//fail("Not yet implemented");
+		fail("Not yet implemented");
 	}
 
 }

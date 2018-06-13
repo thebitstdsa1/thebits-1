@@ -11,9 +11,7 @@ pipeline {
       parallel {
         stage('Deploy') {
           steps {
-            bash '''#!/bin/bash
-                 echo "hello world" 
-              '''
+            echo 'hola'
           }
         }
         stage('Notify') {

@@ -12,7 +12,7 @@ pipeline {
         stage('Deploy') {
           steps {
             echo 'Deploy'
-            sh 'maven clean'
+            bat 'mvn clean'
           }
         }
         stage('Notify') {

@@ -11,7 +11,9 @@ pipeline {
       parallel {
         stage('Deploy') {
           steps {
-            "mvn clean"
+            bash '''#!/bin/bash
+                 echo "hello world" 
+              '''
           }
         }
         stage('Notify') {

@@ -12,7 +12,7 @@ pipeline {
         stage('Deploy') {
           steps {
             echo 'Deploy'
-            mvn verify
+            sh 'mvn verify'
           }
         }
         stage('Notify') {

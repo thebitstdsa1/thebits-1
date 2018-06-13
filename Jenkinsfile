@@ -11,7 +11,7 @@ pipeline {
       parallel {
         stage('Deploy') {
           steps {
-            mvn "clean"
+            bat "mvn clean"
           }
         }
         stage('Notify') {

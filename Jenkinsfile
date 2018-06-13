@@ -16,7 +16,7 @@ pipeline {
         stage('Deploy') {
           steps {
             echo 'Deploy'
-            sh 'mvn verify'
+            sh 'mvn clean'
           }
         }
         stage('Notify') {

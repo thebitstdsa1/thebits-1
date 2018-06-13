@@ -12,7 +12,7 @@ pipeline {
         stage('Deploy') {
           steps {
             echo 'Deploy'
-            bat 'mvn clean'
+            powershell(mvn clean)
           }
         }
         stage('Notify') {

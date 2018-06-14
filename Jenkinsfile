@@ -6,14 +6,19 @@ pipeline {
         echo 'Revisando modificaciones en el repositorio'
       }
     }
-    stage('Run Tests Autom·ticos') {
+    stage('Run Tests Autom√°ticos') {
       steps {
         echo 'Corriendo los tests con maven'
       }
     }
     stage('Deploy para Test Humano') {
       steps {
-        echo 'Enviar al entorno de ProducciÛn para Test Humanos'
+        echo 'Enviar al entorno de Producci√≥n para Test Humanos'
+      }
+    }
+    stage('Slacks') {
+      steps {
+        echo 'Notificaciones al canal de Slack del equipo'
       }
     }
   }

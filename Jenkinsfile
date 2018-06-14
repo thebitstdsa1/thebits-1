@@ -18,7 +18,8 @@ pipeline {
     }
     stage('Deploy para Test Humano') {
       steps {
-        echo 'Enviar al entorno de Producción para Test Humanos'
+        echo  'Enviar al entorno de Producción'
+        bat   'mvn deploy:deploy-file'
       }
     }
     stage('Slacks') {

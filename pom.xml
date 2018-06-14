@@ -72,7 +72,7 @@
                 <url>file:///D:///deploys/</url>
                 <groupId><!-- group-id --></groupId>
                 <artifactId><!-- artifact-id --></artifactId>
-                <version><!-- version --></version>
+                <version>1</version>
                 <packaging><!-- type-of-packaging --></packaging>
             </configuration>
         </execution>

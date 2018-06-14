@@ -69,7 +69,7 @@
             </goals>
             <configuration>
                 <file>D:/deploys</file>
-                <url><!-- url-of-the-repository-to-deploy --></url>
+                <url>file:///D:///deploys/</url>
                 <groupId><!-- group-id --></groupId>
                 <artifactId><!-- artifact-id --></artifactId>
                 <version><!-- version --></version>

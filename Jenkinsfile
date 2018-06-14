@@ -1,12 +1,9 @@
 pipeline {
   agent any
-  tools { 
-    maven 'maven'
-  }
   stages {
-    stage('Test') {
+    stage('Github Checkout') {
       steps {
-        bat 'mvn clean test'
+        echo 'Revisando modificaciones en el repositorio'
       }
     }
     stage('Deploy') {
@@ -23,5 +20,8 @@ pipeline {
         }
       }
     }
+  }
+  tools {
+    maven 'maven'
   }
 }

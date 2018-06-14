@@ -1,5 +1,9 @@
 pipeline {
   agent any
+   tools {
+     maven  'maven'
+     jdk    'jdk8'
+      }
   stages {
     stage('Github Checkout') {
       steps {
@@ -7,9 +11,6 @@ pipeline {
       }
     }
     stage('Run Tests Automáticos') {
-      tools {
-        maven 'maven'
-      }
       steps {
         echo 'Corriendo los tests con maven'
         bat 'mvn clean test'

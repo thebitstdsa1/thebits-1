@@ -6,18 +6,9 @@ pipeline {
         echo 'Revisando modificaciones en el repositorio'
       }
     }
-    stage('Deploy') {
-      parallel {
-        stage('Deploy') {
-          steps {
-            echo 'hola'
-          }
-        }
-        stage('Notify') {
-          steps {
-            echo 'Notificacion'
-          }
-        }
+    stage('Run Tests') {
+      steps {
+        echo 'Corriendo los tests con maven'
       }
     }
   }

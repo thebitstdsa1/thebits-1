@@ -57,6 +57,27 @@
 					</dependency>
 				</dependencies>
 			</plugin>
+			<plugin>
+    <artifactId>maven-deploy-plugin</artifactId>
+    
+    <executions>
+        <execution>
+            <id>deploy-file</id>
+            <phase>deploy</phase>
+            <goals>
+                <goal>deploy-file</goal>
+            </goals>
+            <configuration>
+                <file>D:/deploys</file>
+                <url><!-- url-of-the-repository-to-deploy --></url>
+                <groupId><!-- group-id --></groupId>
+                <artifactId><!-- artifact-id --></artifactId>
+                <version><!-- version --></version>
+                <packaging><!-- type-of-packaging --></packaging>
+            </configuration>
+        </execution>
+    </executions>
+</plugin>
 		</plugins>
 	</build>
 	

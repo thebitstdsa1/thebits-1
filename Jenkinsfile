@@ -7,6 +7,9 @@ pipeline {
       }
     }
     stage('Run Tests Automáticos') {
+      tools {
+        maven 'maven'
+      }
       steps {
         echo 'Corriendo los tests con maven'
       }
@@ -21,8 +24,5 @@ pipeline {
         echo 'Notificaciones al canal de Slack del equipo'
       }
     }
-  }
-  tools {
-    maven 'maven'
   }
 }

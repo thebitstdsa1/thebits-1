@@ -12,6 +12,7 @@ pipeline {
       }
       steps {
         echo 'Corriendo los tests con maven'
+        bat 'mvn clean test'
       }
     }
     stage('Deploy para Test Humano') {

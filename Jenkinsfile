@@ -10,6 +10,8 @@ pipeline {
       steps {
         echo 'Corriendo los tests con maven'
         sh 'mvn clean test'
+        slackSend "Build Started - ${env.JOB_NAME} ${env.BUILD_NUMBER} (<${env.BUILD_URL}|Open>)"
+
       }
     }
     stage('Deploy para Stagging') {

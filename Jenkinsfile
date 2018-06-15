@@ -10,7 +10,7 @@ pipeline {
       steps {
         echo 'Corriendo los tests con maven'
         sh 'mvn clean test'
-        slackSend "Build Started - ${env.JOB_NAME} ${env.BUILD_NUMBER} (<${env.BUILD_URL}|Open>)"
+        slackSend (color: '#FFFF00', message: "STARTED: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' (${env.BUILD_URL})")
 
       }
     }

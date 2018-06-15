@@ -12,10 +12,11 @@ pipeline {
         sh 'mvn clean test'
       }
     }
-    stage('Deploy para Test Humano') {
+    stage('Deploy para Stagging') {
       steps {
         echo 'Enviar al entorno de Producción'
-        bat 'mvn install'
+        //bat 'mvn install'
+        sh 'mvn install'
       }
     }
     stage('Slacks') {

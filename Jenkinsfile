@@ -19,7 +19,7 @@ pipeline {
     stage('Deploy para Test Humano') {
       steps {
         echo  'Enviar al entorno de Producción'
-        bat   'mvn deploy:deploy-file'
+        bat   'mvn install'
       }
     }
     stage('Slacks') {

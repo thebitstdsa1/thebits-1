@@ -1,9 +1,5 @@
 pipeline {
   agent any
-   tools {
-     maven  'maven'
-     //jdk    'jdk8'
-      }
   stages {
     stage('Github Checkout') {
       steps {
@@ -13,14 +9,13 @@ pipeline {
     stage('Run Tests Automáticos') {
       steps {
         echo 'Corriendo los tests con maven'
-        //bat 'mvn clean test'
         sh 'mvn clean test'
       }
     }
     stage('Deploy para Test Humano') {
       steps {
-        echo  'Enviar al entorno de Producción'
-        bat   'mvn install'
+        echo 'Enviar al entorno de Producción'
+        bat 'mvn install'
       }
     }
     stage('Slacks') {
@@ -28,5 +23,8 @@ pipeline {
         echo 'Notificaciones al canal de Slack del equipo'
       }
     }
+  }
+  tools {
+    maven 'maven'
   }
 }

@@ -13,22 +13,22 @@ pipeline {
         bat 'mvn clean test'
       }
     }
-    stage('Install') {
+    stage('SonarQube') {
       steps {
-        echo 'Construir el jar'
         bat 'mvn sonar:sonar \
               -Dsonar.organization=gabrielbd-github \
               -Dsonar.host.url=https://sonarcloud.io \
               -Dsonar.login=thebits'
+      }
+    }
+    
+    stage('Install') {
+      steps {
+        echo 'Construir el jar'
         bat 'mvn install'
         //sh 'mvn install'
       }
     }
-    /*stage('Slacks') {
-      steps {
-        echo 'Notificaciones al canal de Slack del equipo'
-      }
-    }*/
   }
   tools {
     maven 'maven'

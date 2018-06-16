@@ -16,7 +16,7 @@ pipeline {
     stage('Install') {
       steps {
         echo 'Construir el jar'
-        bat 'mvn install'
+        bat 'mvn sonar:sonar install'
         //sh 'mvn install'
       }
     }
@@ -29,7 +29,7 @@ pipeline {
   tools {
     maven 'maven'
     jdk   'jdk8'
-    sonar 'sonar'
+    //sonar 'sonar'
   }
   
   post {

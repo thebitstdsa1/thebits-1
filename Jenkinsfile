@@ -9,9 +9,8 @@ pipeline {
     stage('Run Tests Automáticos') {
       steps {
         echo 'Corriendo los tests con maven'
-        bat 'mvn clean test'
         slackSend (channel: '#presentacion-tdsa', color: '#FFFF00', message: "STARTED: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' (${env.BUILD_URL})")
-
+        bat 'mvn clean test'
       }
     }
     stage('Deploy para Stagging') {

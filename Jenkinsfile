@@ -6,7 +6,7 @@ pipeline {
         echo 'Revisando modificaciones en el repositorio'
       }
     }
-    stage('Run Tests Automáticos') {
+    stage('Unit Test') {
       steps {
         echo 'Corriendo los tests con maven'
         slackSend (channel: '#presentacion-tdsa', color: '#FFFF00', message: "STARTED: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' (${env.RUN_DISPLAY_URL})")

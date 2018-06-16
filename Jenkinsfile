@@ -38,5 +38,8 @@ pipeline {
     success {
       slackSend (channel: '#presentacion-tdsa', color: '#5FB404', message: "SUCCESS: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' (${env.BUILD_URL})")
       }
+    always {
+      junit 'build/reports/**/*.xml'
+    }
   }
 }

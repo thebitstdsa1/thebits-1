@@ -4,9 +4,7 @@ public class Calculo {
 	
 	public int multiplicar(int a, int b) {
 		return a*b;
-	}
-	
-	if(temp<10){
+		if(temp<10){
             mensaje = "Hace mucho frío.";
         }
         else{
@@ -27,5 +25,6 @@ public class Calculo {
                 }
             }
         }
+	}
 	
 }

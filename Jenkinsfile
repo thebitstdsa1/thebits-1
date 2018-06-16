@@ -15,7 +15,10 @@ pipeline {
     }
     stage('SonarQube') {
       steps {
-        bat 'mvn sonar:sonar'
+        bat 'mvn sonar:sonar \
+              -Dsonar.organization=gabrielbd-github \
+              -Dsonar.host.url=https://sonarcloud.io \
+              -Dsonar.login=thebits'
       }
     }    
   }
@@ -35,20 +38,6 @@ pipeline {
       }
     always {
       junit 'target/surefire-reports/*.xml'
-    }
-  }
-  
-  sonarRunner: {
-    analysis: {
-        options: {
-            sonar: {
-                login: 'thebits',
-                password: '100%kuervo',
-                host: {
-                    url: 'https://sonarcloud.io'
-                },
-            },
-        }
     }
   }
 }

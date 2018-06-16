@@ -13,18 +13,18 @@ pipeline {
         bat 'mvn clean test'
       }
     }
-    stage('Deploy para Stagging') {
+    stage('Install') {
       steps {
-        echo 'Enviar al entorno de Producción'
+        echo 'Construir el jar'
         bat 'mvn install'
         //sh 'mvn install'
       }
     }
-    stage('Slacks') {
+    /*stage('Slacks') {
       steps {
         echo 'Notificaciones al canal de Slack del equipo'
       }
-    }
+    }*/
   }
   tools {
     maven 'maven'

@@ -6,21 +6,29 @@ pipeline {
         echo 'Revisando modificaciones en el repositorio'
       }
     }
-    stage('Unit Test') {
-      steps {
-        echo 'Corriendo los tests con maven'
-        slackSend (channel: '#presentacion-tdsa', color: '#FFFF00', message: "STARTED: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' (${env.RUN_DISPLAY_URL})")
-        bat 'mvn clean test'
+    stage('Run Tests'){
+      parallel {  
+        stage('Unit Test') {
+          steps {
+            echo 'Corriendo los tests con maven'
+            slackSend (channel: '#presentacion-tdsa', color: '#FFFF00', message: "STARTED: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' (${env.RUN_DISPLAY_URL})")
+            bat 'mvn clean test'
+          }
+        }
+        stage('SonarQube') {
+          steps {
+            bat 'mvn sonar:sonar \
+                  -Dsonar.organization=gabrielbd-github \
+                  -Dsonar.host.url=https://sonarcloud.io \
+                  -Dsonar.login=0a2bedb909edab1cd8189565b99799c7f0161b8e'
+          }
+        }
       }
     }
-    stage('SonarQube') {
-      steps {
-        bat 'mvn sonar:sonar \
-              -Dsonar.organization=gabrielbd-github \
-              -Dsonar.host.url=https://sonarcloud.io \
-              -Dsonar.login=0a2bedb909edab1cd8189565b99799c7f0161b8e'
-      }
-    }    
+    stage('Deploy'){
+      bat 'mvn install'
+    }
+    
   }
   tools {
     maven 'maven'
@@ -33,7 +41,6 @@ pipeline {
       }
     success {
       slackSend (channel: '#presentacion-tdsa', color: '#5FB404', message: "SUCCESS: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' (${env.RUN_DISPLAY_URL})")
-      bat 'mvn install'
       archiveArtifacts "target/**/*"
       }
     always {

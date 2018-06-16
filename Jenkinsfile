@@ -15,21 +15,9 @@ pipeline {
     }
     stage('SonarQube') {
       steps {
-        bat 'mvn sonar:sonar \
-              -Dsonar.organization=gabrielbd-github \
-              -Dsonar.host.url=https://sonarcloud.io \
-              -Dsonar.login=thebits'
+        bat 'mvn sonar:sonar'
       }
-    }
-    
-    /*stage('Install') {
-      steps {
-        echo 'Construir el jar'
-        bat 'mvn install'
-        //sh 'mvn install'
-      }
-    }*/
-    
+    }    
   }
   tools {
     maven 'maven'
@@ -47,6 +35,20 @@ pipeline {
       }
     always {
       junit 'target/surefire-reports/*.xml'
+    }
+  }
+  
+  sonarRunner: {
+    analysis: {
+        options: {
+            sonar: {
+                login: 'thebits',
+                password: '100%kuervo',
+                host: {
+                    url: 'https://sonarcloud.io'
+                },
+            },
+        }
     }
   }
 }

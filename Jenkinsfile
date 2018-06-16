@@ -28,7 +28,7 @@ pipeline {
   }
   tools {
     maven 'maven'
-    //jdk   'jdk8'
+    jdk   'jdk8'
   }
   
   post {

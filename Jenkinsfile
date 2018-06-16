@@ -1,11 +1,13 @@
 pipeline {
   agent any
   stages {
+    
     stage('Github Checkout') {
       steps {
         echo 'Revisando modificaciones en el repositorio'
       }
     }
+    
     stage('Run Tests'){
       parallel {  
         stage('Unit Test') {
@@ -25,8 +27,11 @@ pipeline {
         }
       }
     }
+    
     stage('Deploy'){
-      bat 'mvn install'
+      steps {
+        bat 'mvn install'
+      }
     }
     
   }

@@ -29,6 +29,7 @@ pipeline {
   tools {
     maven 'maven'
     jdk   'jdk8'
+    sonar 'sonar'
   }
   
   post {

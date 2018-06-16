@@ -22,18 +22,18 @@ pipeline {
       }
     }
     
-    stage('Install') {
+    /*stage('Install') {
       steps {
         echo 'Construir el jar'
         bat 'mvn install'
         //sh 'mvn install'
       }
-    }
+    }*/
+    
   }
   tools {
     maven 'maven'
     jdk   'jdk8'
-    //sonar 'sonar'
   }
   
   post {

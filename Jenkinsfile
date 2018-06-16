@@ -31,4 +31,10 @@ pipeline {
     maven 'maven'
     jdk   'jdk8'
   }
+  
+  post {
+    failure {
+      slackSend (color: '#FF0000', message: "FAILURE: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' (${env.BUILD_URL})")
+      }
+  }
 }

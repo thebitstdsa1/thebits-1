@@ -16,7 +16,11 @@ pipeline {
     stage('Install') {
       steps {
         echo 'Construir el jar'
-        bat 'mvn sonar:sonar install'
+        bat 'mvn sonar:sonar \
+              -Dsonar.organization=gabrielbd-github \
+              -Dsonar.host.url=https://sonarcloud.io \
+              -Dsonar.login=thebits'
+        bat 'mvn install'
         //sh 'mvn install'
       }
     }

@@ -37,9 +37,9 @@ pipeline {
       }
     success {
       slackSend (channel: '#presentacion-tdsa', color: '#5FB404', message: "SUCCESS: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' (${env.RUN_DISPLAY_URL})")
+      archive "target/**/*"
       }
     always {
-      archive "target/**/*"
       junit 'target/surefire-reports/*.xml'
     }
   }

@@ -41,12 +41,7 @@ pipeline {
     jdk   'jdk8'
   }
   
-  post {
-    def ceTask
-    sh 'curl -u $SONAR_AUTH_TOKEN $SONAR_CE_TASK_URL -o ceTask.json'
-    ceTask = jsonParse(readFile('ceTask.json'))
-    def sonarStatus = ceTask["task"]["status"]
-    
+  post {    
     failure {
       slackSend (channel: '#presentacion-tdsa', color: '#FF0000', message: "FAILURE: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' (${env.RUN_DISPLAY_URL})")
       }

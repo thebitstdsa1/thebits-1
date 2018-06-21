@@ -20,7 +20,7 @@ pipeline {
         }
         stage('SonarQube') {
           steps {
-            echo 'hola'
+            echo 'hola'//
             /*bat 'mvn sonar:sonar \
                   -Dsonar.organization=gabrielbd-github \
                   -Dsonar.host.url=https://sonarcloud.io \

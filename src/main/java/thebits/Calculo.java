@@ -8,6 +8,6 @@ public class Calculo {
 		//int c = a*b;
 		//int d = a*b;
 		//int d = a*b;
-		return a*b;
+		return a*a;
 	}
 }

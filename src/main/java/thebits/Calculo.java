@@ -9,6 +9,6 @@ public class Calculo {
 		//int d = a*b;
 		//int e = a*b;
 		//int f = a*b;
-		return a*b;//
+		return a*b;
 	}
 }

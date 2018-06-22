@@ -52,11 +52,6 @@ pipeline {
       }
     always {
       junit 'target/surefire-reports/*.xml'
-      
-      if [ "\`curl -sL -w %{http_code} http://https://sonarcloud.io/api/qualitygates/project_status?projectKey=project_key -o /dev/null -S --quiet 2>&1 | jsawk -a 'return this.status'\`" == "ERROR" ]; 
-      then 
-        exit 1; 
-      fi;
     }
   }
 }
